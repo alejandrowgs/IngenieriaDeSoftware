@@ -1,0 +1,6 @@
+@startuml EjercicioK
+[*] --> PedidoColocado
+PedidoColocado --> PedidoPagadoPorAdelantado : Cobrado
+PedidoPagadoPorAdelantado --> PedidoEnviado : Enviado
+PedidoEnviado --> [*]
+@enduml
