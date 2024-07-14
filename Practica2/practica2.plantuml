@@ -1,0 +1,61 @@
+@startuml Practica2 Equipo Volleyball
+
+class Equipo {
+    - nombre: String
+    - registro: String
+    - jugadores: List<Jugador>
+    + getNombre(): String
+    + getRegistro(): String
+    + getJugadores(): List<Jugador>
+    + addJugador(jugador: Jugador): void
+    + removeJugador(jugador: Jugador): void
+}
+
+class Jugador {
+    - nombre: String
+    - posicion: String
+    - numero: int
+    + getNombre(): String
+    + getPosicion(): String
+    + getNumero(): int
+}
+
+class Juego {
+    - localidad : string
+    - puntuacion: String
+    - fecha: Date
+    - equipo1: Equipo
+    - equipo2: Equipo
+    - ganador: Equipo
+    + getFecha(): Date
+    + getEquipo1(): Equipo
+    + getEquipo2(): Equipo
+    + getMarcador(): String
+    + getGanador(): Equipo
+
+}
+
+class Entrenador {
+    - acreditacion: int
+    - años de experiencia: int
+}
+
+class Persona {
+    - nombre: String
+    - edad: int
+    - sexo: char
+    - direccion: String
+    - telefono: String
+    + getNombre(): String
+    + getEdad(): int
+    + getSexo(): char
+
+}
+
+Equipo "1" *-- "6..20" Jugador
+Equipo "1" --* "1..*" Juego
+Equipo "1..*" *-- "1" Entrenador
+Jugador "1" --|> "1" Persona
+Entrenador "1" --|> "1" Persona
+
+@enduml
