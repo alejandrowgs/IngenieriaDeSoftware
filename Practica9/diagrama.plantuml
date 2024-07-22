@@ -1,0 +1,49 @@
+@startuml practica9Diagrama
+
+class TurnOnDevices {
+    +main (String[] args)
+    +turnOnDDevice (Connectable device)
+}
+
+class InterfaceConnectable {
+    +turnOn()
+    +turnOff()
+    +isOn()
+}
+
+class Lamp {
+    - on : boolean
+    +turnOn()
+    +turnOff()
+    +isOn()
+}
+
+class Computer {
+    - on : boolean
+    +turnOn()
+    +turnOff()
+    +isOn()
+}
+
+class CoffeMaker {
+    - off : boolean
+    +turnOn()
+    +turnOff()
+    +isOff()
+}
+
+class CoffeMakerAdapter {
+    -CoffeMaker : coffeMaker
+    +turnOn()
+    +turnOff()
+    +isOn()
+}
+
+CoffeMakerAdapter -up-|> InterfaceConnectable
+CoffeMaker <|-up- CoffeMakerAdapter
+InterfaceConnectable <-up- TurnOnDevices
+Lamp -up-|> InterfaceConnectable
+Computer -up-|> InterfaceConnectable
+
+
+@enduml
